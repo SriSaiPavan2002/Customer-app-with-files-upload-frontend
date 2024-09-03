@@ -1,0 +1,60 @@
+<div class="customer-form">
+  <h2>{{ isEditMode ? 'Edit Customer' : 'New Customer' }}</h2>
+  <form (ngSubmit)="onSubmit(customerForm)" #customerForm="ngForm">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" [(ngModel)]="customer.first_name" name="first_name" class="form-control" required>
+      <div *ngIf="customerForm.controls['first_name']?.invalid && customerForm.controls['first_name']?.touched" class="error">
+        First name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" [(ngModel)]="customer.last_name" name="last_name" class="form-control" required>
+      <div *ngIf="customerForm.controls['last_name']?.invalid && customerForm.controls['last_name']?.touched" class="error">
+        Last name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" id="male" [(ngModel)]="customer.gender" name="gender" value="Male"> Male
+        </label>
+        <label>
+          <input type="radio" id="female" [(ngModel)]="customer.gender" name="gender" value="Female"> Female
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="customer.email" name="email" class="form-control" required>
+      <div *ngIf="customerForm.controls['email']?.invalid && customerForm.controls['email']?.touched" class="error">
+        A valid email is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" [(ngModel)]="customer.address" name="address" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" [(ngModel)]="customer.city" name="city" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" id="state" [(ngModel)]="customer.state" name="state" class="form-control">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-success" [disabled]="customerForm.invalid">{{ isEditMode ? 'Update' : 'Create' }}</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="customer-card">
+  <div class="customer-header">
+    <img [src]="customerIcon" alt="Customer Icon" class="customer-icon" />
+    <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+    <button class="edit-button" (click)="onEdit()">
+      <img src="assets/edit-icon.png" alt="Edit" />
+    </button>
+    <button class="delete-button" (click)="onDelete()">
+      <img src="assets/delete-icon.png" alt="Delete" />
+    </button>
+  </div>
+  <div class="customer-body">
+    <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+  </div>
+</div>

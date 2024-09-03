@@ -1,0 +1,45 @@
+.customer-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #888;
+  color: white;
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+}
+
+.customer-avatar {
+  width: 40px; /* Adjust the size if needed */
+  height: 40px;
+  border-radius: 50%;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.customer-body {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.customer-body a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.customer-body a:hover {
+  text-decoration: underline;
+}

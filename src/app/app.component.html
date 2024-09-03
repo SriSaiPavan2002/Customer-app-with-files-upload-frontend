@@ -1,0 +1,29 @@
+<div class="header">
+  <button class="new-customer" (click)="toggleForm()">
+    <span>+ New Customer</span>
+  </button>
+  <input type="text" class="filter" placeholder="Filter" [(ngModel)]="searchTerm" />
+  <button class="import-button" (click)="fileInput.click()">Import</button>
+  <input type="file" #fileInput (change)="onFileChange($event)" style="display: none;" />
+  <select class="sort-select" (change)="onSortChange($event)">
+    <option value="asc">Sort A-Z</option>
+    <option value="desc">Sort Z-A</option>
+  </select>
+</div>
+
+<app-customer-form 
+  *ngIf="showForm" 
+  [isEditMode]="isEditMode" 
+  [customer]="editingCustomer"
+  (customerAdded)="handleCustomerAdded($event)" 
+  (formCancelled)="toggleForm()">
+</app-customer-form>
+
+<div class="customer-list">
+  <app-customer-card 
+    *ngFor="let customer of filteredCustomers" 
+    [customer]="customer"
+    (editCustomer)="handleEditCustomer($event)"
+    (deleteCustomer)="handleDeleteCustomer($event)">
+  </app-customer-card>
+</div>
